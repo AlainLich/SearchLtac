@@ -1,0 +1,12 @@
+# Git stuff
+.gitignore
+
+# Emacs generated
+*~
+\#*
+
+# Ocaml generated
+*.cmi
+*.cmo
+*.cmxs
+*.aux
