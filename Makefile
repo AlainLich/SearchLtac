@@ -8,8 +8,12 @@ coq: Makefile.coq
 	$(MAKE) -f Makefile.coq
 
 Makefile.coq: Makefile $(MODULES)
-	coq_makefile -R $(ROOT)/src Output \
+	coq_makefile -R $(ROOT)/src Search \
 		     $(MODULES) -o Makefile.coq
+	# here adding some dependencies that the Makefile does not seem able to figure out
+	echo >>Makefile.coq
+	echo \# Added dependencies at `date` >>Makefile.coq
+	echo src/SearchTac.vo src/SearchTac.glob :  src/search_plugin.cmxs >> Makefile.coq
 
 clean:: Makefile.coq
 	$(MAKE) -f Makefile.coq clean
