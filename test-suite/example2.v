@@ -18,4 +18,5 @@ SearchLtac "<l>shelve$".
 SearchLtac "<l>\(pro\|sub\).*".
 SearchLtac ".*Class.*<l>\(pro\|sub\).*".
 
+(* For tests of failure conditions, see example1.v *)
 

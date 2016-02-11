@@ -53,3 +53,9 @@ Note: this version is highly experimental, and tested only on Coq8.5rc1
 | SearchLtac  ".*Ar.*<l>.*ve.*".         |  |
 | SearchLtac ".*Class.*<l>\(pro\|sub\).*".| |
 |----------------------------------------|----------------------------------|
+
+## Configuration
+
+This software has been tested on Coq 8.5rc1. It is known not to be compatible with
+earlier versions of Coq.
+

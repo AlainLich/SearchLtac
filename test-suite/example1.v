@@ -12,8 +12,11 @@ Section t.
 End t. 
 
 SearchLtac ".*intro.*".
+
+(* This should display a failure message *)
 Fail SearchLtac ".*\(clear.*".
 
+(* This should fail *)
 SearchLtac ".*\(clear.*".
 
 (* *)

@@ -10,3 +10,21 @@
 *.cmo
 *.cmxs
 *.aux
+*/*.cmi
+*/*.cmo
+*/*.cmx
+*/*.cmxs
+*/*.aux
+*/*.o
+
+
+# Coq generated
+*.d
+*.vo
+*/*.d
+*/*.vo
+*/*.glob
+
+# Other generated
+Makefile.coq
+README.html
