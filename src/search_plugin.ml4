@@ -50,7 +50,12 @@ let prepPattern = fun patt ->
 		                          then Str.regexp_case_fold
 			                  else Str.regexp 
                  in retSpec.rexOrSepL <-
-		   List.append retSpec.rexOrSepL [ (rexCompiler t)]
+		   let rex = try rexCompiler t
+		             with _ -> raise (Invalid_argument  ( concat "" [
+			                         "Unable to compile regexpr:\""; t ;
+					          "\" not Ocaml Str compliant." ]))
+		   in     
+		   List.append retSpec.rexOrSepL [ rex ]
      |Delim d -> if d = "<i>" || d = "<I>"
                  then  retSpec.noCase <- true
 		 else if d = "<c>" || d = "<C>"
@@ -112,7 +117,14 @@ let filterAccessLtacs = fun regex ->
 let searchFromRegex = fun (strarg : string) ->
      pp ( Pp.str (concat " " [ "Searching from regexp:" ; strarg ; "\n" ]));
      pp_flush();
-     filterAccessLtacs strarg
+     try
+         filterAccessLtacs strarg
+     with
+       | Invalid_argument msg ->
+            raise ( Errors.UserError (" " , (Pp.str (concat " " ["Error" ; msg ;"\n"]))))
+       |  _                   ->
+            raise ( Errors.UserError (" ", (Pp.str (concat " "
+                                      ["An error has occurred" ; "\n"]))))
 ;;
 
 (** This is the simplest command *)

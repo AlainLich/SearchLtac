@@ -12,5 +12,8 @@ Section t.
 End t. 
 
 SearchLtac ".*intro.*".
-SearchLtac ".*clear.*".
+Fail SearchLtac ".*\(clear.*".
 
+SearchLtac ".*\(clear.*".
+
+(* *)
