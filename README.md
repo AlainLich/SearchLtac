@@ -17,23 +17,24 @@ Note: this version is highly experimental, and tested only on Coq8.5rc1
  1 -  The pattern language has been taken from ocaml (see reference manual chap. 24.1).
  2 -  It is  extended in the following way
                               
-|:------------|:------------------------------|
-| <l>         | Last component follows (appears once)       |
-| <i>         | Case insensitive comparison   |
-| <c>         | Case sensitive comparison   |
-|:------------|:------------------------------|
+| tag         |                                             |
+| ----------  | ---------------------------------------     |
+| \<l\>         | Last component follows (appears once)       |
+| \<i\>         | Case insensitive comparison   |
+| \<c\>         | Case sensitive comparison   |
+
 
 ## Optional arguments / options state 
   All of this is *planned* (i.e. not done yet):
   A number of state variables are available, to be set up by a special syntax, for
   now we are not using the general Set mechanism (which prevents interference ....)
- 1 - Show the outcome starting with the Ltac name
- 2 - Verbosity level
+ 1. Show the outcome starting with the Ltac name
+ 2.  Verbosity level
 
 ## Examples
 
-
-|:---------------------------------------|:---------------------------------|
+| Command                                |  Result                                |
+| :------------------------------------- | :------------------------------- |
 | SearchLtac  ".*intro$".                | Key = Coq.Init.Notations.intro   |
 | SearchLtac  ".*intro".                 | Key = LibTac.intro_until_mark    |
 |                                        | Key = LibTac.introv_arg          |
@@ -49,10 +50,10 @@ Note: this version is highly experimental, and tested only on Coq8.5rc1
 | SearchLtac  ".*destr.*".               |                                  |
 | SearchLtac  ".*apply.*".               |                                  |
 | SearchLtac  ".*intro$".                |                                  |
-| SearchLtac  "<l>.*ve.*".               |
+| SearchLtac  "\<l\>.*ve.*".               |
 | SearchLtac  ".*Ar.*<l>.*ve.*".         |  |
 | SearchLtac ".*Class.*<l>\(pro\|sub\).*".| |
-|----------------------------------------|----------------------------------|
+
 
 ## Configuration
 
